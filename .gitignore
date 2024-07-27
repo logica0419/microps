@@ -13,9 +13,9 @@
 *.exp
 
 # Precompiled Headers
-*.gch
 *.pch
 
+*.gch
 # Libraries
 *.lib
 *.a
@@ -50,3 +50,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# VSCode settings
+.vscode
