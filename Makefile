@@ -1,8 +1,8 @@
-APPS = 
+APPS =
 
-DRIVERS = 
+DRIVERS =
 
-OBJS = util.o \
+OBJECTS = util.o \
 
 TESTS = test/step0.exe \
 
@@ -25,14 +25,14 @@ endif
 
 all: $(APPS) $(TESTS)
 
-$(APPS): %.exe : %.o $(OBJS) $(DRIVERS)
+$(APPS): %.exe : %.o $(OBJECTS) $(DRIVERS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-$(TESTS): %.exe : %.o $(OBJS) $(DRIVERS) test/test.h
+$(TESTS): %.exe : %.o $(OBJECTS) $(DRIVERS) test/test.h
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(APPS) $(APPS:.exe=.o) $(OBJS) $(DRIVERS) $(TESTS) $(TESTS:.exe=.o)
+	rm -rf $(APPS) $(APPS:.exe=.o) $(OBJECTS) $(DRIVERS) $(TESTS) $(TESTS:.exe=.o)
